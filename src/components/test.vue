@@ -12,7 +12,9 @@
           <input type="text" v-on:keyup= "pressKey" v-on:keyup.enter="enterHit">
           <br/>
           <label>First Name: </label><input type= "text" v-model="user.firstName"> <br/>
-            <label>Last Name: </label><input type= "text" v-model="user.lastName"> <br/>
+          <label>Last Name: </label><input type= "text" v-model="user.lastName"> <br/>
+          <h3>{{fullName}}</h3>
+
         </div>
       </div>
     </template>
@@ -44,6 +46,11 @@ export default {
     },
     enterHit: function() {
       console.log('You Hit Enter')
+    }
+  },
+  computed: {
+    fullName: function() {
+      return this.user.firstName + ' ' + this.user.lastName
     }
   }
 }
